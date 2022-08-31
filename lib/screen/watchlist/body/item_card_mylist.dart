@@ -12,7 +12,7 @@ class ItemCardList extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height,
       child: InkWell(
-        onTap: (){
+        onTap: () {
           press;
           print('card pressed');
         },
@@ -20,47 +20,54 @@ class ItemCardList extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Expanded(
-                  flex: 1,
-                  child: Image.asset(data!.imageBanner)),
+              Expanded(flex: 1, child: Image.asset(data!.imageBanner)),
               Expanded(
                   flex: 2,
                   child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Text(data!.name, style: GoogleFonts.inter(
-                        fontSize: 14,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.white
-                      ),),
-                      SizedBox(height: 10.0,),
-                      Container(
-                        width: 40,
-                        height: 20,
-                        decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(10.0)),
-                        child: Center(
-                          child: Text(
-                            data!.rate,
-                            style: GoogleFonts.inter(
-                                fontSize: 12,
-                                color: Colors.white,
-                                fontWeight: FontWeight.normal),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Text(
+                          data!.name,
+                          style: GoogleFonts.inter(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white),
+                        ),
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          width: 40,
+                          height: 20,
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: Center(
+                            child: Text(
+                              data!.rate,
+                              style: GoogleFonts.inter(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal),
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 10,),
-                      Text(data!.genre, style: GoogleFonts.inter(
-                          fontSize: 12,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.white
-                      ),),
-                    ],
-                  ),))
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          data!.genre,
+                          style: GoogleFonts.inter(
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ))
             ],
           ),
         ),

@@ -44,7 +44,8 @@ class DetailMovie extends StatelessWidget {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            icon: SvgPicture.asset('assets/icons/arrowback.svg')),
+                            icon:
+                                SvgPicture.asset('assets/icons/arrowback.svg')),
                       ),
                     ),
                   )
@@ -54,8 +55,8 @@ class DetailMovie extends StatelessWidget {
                 height: 15,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 10.0),
                 child: Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -180,7 +181,8 @@ class DetailMovie extends StatelessWidget {
                     ),
                     style: ElevatedButton.styleFrom(
                         primary: Color(0xff272727),
-                        fixedSize: Size(MediaQuery.of(context).size.width, 40.0),
+                        fixedSize:
+                            Size(MediaQuery.of(context).size.width, 40.0),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(5.0))),
                   ),
@@ -193,12 +195,16 @@ class DetailMovie extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 20.0),
                 child: buildText(data.synopsis),
               ),
-              SizedBox(height: 15.0,),
+              SizedBox(
+                height: 15.0,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20.0),
                 child: buildText("Cast : ${data.cast}"),
               ),
-              SizedBox(height: 15.0,),
+              SizedBox(
+                height: 15.0,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20.0),
                 child: buildText("Creator : ${data.creator}"),
