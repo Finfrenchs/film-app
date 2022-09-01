@@ -49,7 +49,7 @@ class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProv
   }
 
   AppBar buildAppBar() {
-    bool isActive = true;
+    //bool isActive = true;
     return AppBar(
       automaticallyImplyLeading: false,
       elevation: 8,

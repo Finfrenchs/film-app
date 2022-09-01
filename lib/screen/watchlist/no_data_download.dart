@@ -49,25 +49,31 @@ class NoDataDownload extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 50,),
-          ButtonTheme(
-              minWidth: 120.0,
-              height: 50.0,
-              child: RaisedButton(
-                onPressed: () {},
-                color: kIconPrimaryColor,
+          SizedBox(
+            height: 50,
+          ),
+          Container(
+              margin: EdgeInsets.symmetric(vertical: 5.0),
+              width: 120,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {
+                  print('Search Pressed');
+                },
                 child: Text(
                   'Search',
                   style: GoogleFonts.inter(
-                    fontSize: 14,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold
-                  ),
+                      fontSize: 14,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5.0),
-                ),
-              ))
+                style: ElevatedButton.styleFrom(
+                    primary: kIconPrimaryColor,
+                    fixedSize: Size(120, 50),
+                    elevation: 1,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0))),
+              )),
         ],
       ),
     ));

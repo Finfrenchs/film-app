@@ -120,44 +120,60 @@ class DetailMovie extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    ButtonTheme(
-                      minWidth: 150.0,
-                      height: 40.0,
-                      child: RaisedButton.icon(
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          color: kIconPrimaryColor,
-                          icon: SvgPicture.asset(
-                              'assets/icons/playbuttonborder.svg'),
-                          label: Text(
-                            'Play Now',
-                            style: GoogleFonts.inter(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          )),
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5.0),
+                      width: 150,
+                      height: 40,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          print("Play Pressed");
+                        },
+                        icon: SvgPicture.asset(
+                          'assets/icons/playbuttonborder.svg',
+                          color: Colors.black,
+                        ),
+                        label: Text(
+                          "Play Now",
+                          style: GoogleFonts.inter(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            primary: kIconPrimaryColor,
+                            fixedSize: Size(150, 40),
+                            elevation: 1,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                      ),
                     ),
-                    ButtonTheme(
-                      minWidth: 150.0,
-                      height: 40.0,
-                      child: RaisedButton.icon(
-                          onPressed: () {},
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                          color: kIconPrimaryColor,
-                          icon: SvgPicture.asset(
-                              'assets/icons/playbuttonborder.svg'),
-                          label: Text(
-                            'Play Trailer',
-                            style: GoogleFonts.inter(
-                                fontSize: 14,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          )),
-                    )
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 5.0),
+                      width: 150,
+                      height: 40,
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          print("Play Pressed");
+                        },
+                        icon: SvgPicture.asset(
+                          'assets/icons/playbuttonborder.svg',
+                          color: Colors.black,
+                        ),
+                        label: Text(
+                          "Play Trailer",
+                          style: GoogleFonts.inter(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                            primary: kIconPrimaryColor,
+                            fixedSize: Size(150, 40),
+                            elevation: 1,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5.0))),
+                      ),
+                    ),
                   ],
                 ),
               ),
