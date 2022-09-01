@@ -89,17 +89,18 @@ class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProv
         ),
       ],
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(80),
+        preferredSize: Size.fromHeight(75),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 80),
+          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
           child: Column(
             children: <Widget>[
               Container(
-                height: 45,
+                height: 40,
+                //width: MediaQuery.of(context).size.width*0.5,
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                 decoration: BoxDecoration(
                     color: Color(0xff373737),
-                    borderRadius: BorderRadius.circular(20)),
+                    borderRadius: BorderRadius.circular(15)),
                 child: TabBar(
                     controller: controller,
                     indicator: BoxDecoration(
@@ -109,11 +110,12 @@ class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProv
                     labelColor: Colors.black,
                     tabs: <Widget>[
                       new Tab(
-                        text: 'My List',
-                      ),
+                          text: 'My List',
+                        ),
                       new Tab(
-                        text: 'Download',
-                      )
+                          text: 'Download',
+                        ),
+
                     ]),
               ),
             ],

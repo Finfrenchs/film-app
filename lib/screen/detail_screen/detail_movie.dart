@@ -11,224 +11,239 @@ class DetailMovie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQueryWidth = MediaQuery.of(context).size.width;
+    final mediaQueryWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
 
     return Scaffold(
       backgroundColor: kBgPrimaryColor,
       body: SafeArea(
           child: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.only(bottom: 15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Stack(
+            child: Container(
+              padding: EdgeInsets.only(bottom: 15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Container(
-                    width: mediaQueryWidth,
-                    child: Image.asset(
-                      data.imageBanner,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                          color: Color(0xff737272).withOpacity(0.6),
-                          borderRadius: BorderRadius.circular(8.0)),
-                      child: Center(
-                        child: IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon:
+                  //Banner
+                  Stack(
+                    children: <Widget>[
+                      Container(
+                        width: mediaQueryWidth,
+                        child: Image.asset(
+                          data.imageBanner,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Container(
+                          height: 30,
+                          width: 30,
+                          decoration: BoxDecoration(
+                              color: Color(0xff737272).withOpacity(0.6),
+                              borderRadius: BorderRadius.circular(8.0)),
+                          child: Center(
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon:
                                 SvgPicture.asset('assets/icons/arrowback.svg')),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  //Movie Name
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 10.0),
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Flexible(
+                            child: Text(
+                              data.name,
+                              style: GoogleFonts.inter(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          FavoriteBtn(),
+                        ],
                       ),
                     ),
+                  ),
+                  SizedBox(height: 5.0),
+                  //Rate & Genre
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          width: 40,
+                          height: 20,
+                          decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(10.0)),
+                          child: Center(
+                            child: Text(
+                              data.rate,
+                              style: GoogleFonts.inter(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Flexible(
+                          child: Text(
+                            data.genre,
+                            style: GoogleFonts.inter(
+                              fontSize: 12,
+                              color: Colors.white,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  //Button Play
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5.0),
+                          width: mediaQueryWidth * 0.4,
+                          height: 40,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              print("Play Pressed");
+                            },
+                            icon: SvgPicture.asset(
+                              'assets/icons/playbuttonborder.svg',
+                              color: Colors.black,
+                            ),
+                            label: Text(
+                              "Play Now",
+                              style: GoogleFonts.inter(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                primary: kIconPrimaryColor,
+                                fixedSize: Size(mediaQueryWidth * 0.4, 40),
+                                elevation: 1,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.symmetric(vertical: 5.0),
+                          width: mediaQueryWidth * 0.4,
+                          height: 40,
+                          child: ElevatedButton.icon(
+                            onPressed: () {
+                              print("Play Pressed");
+                            },
+                            icon: SvgPicture.asset(
+                              'assets/icons/playbuttonborder.svg',
+                              color: Colors.black,
+                            ),
+                            label: Text(
+                              "Play Trailer",
+                              style: GoogleFonts.inter(
+                                  color: Colors.black,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                primary: kIconPrimaryColor,
+                                fixedSize: Size(mediaQueryWidth * 0.4, 40),
+                                elevation: 1,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  //Button Download
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Center(
+                        child: ButtonTheme(
+                          height: 40.0,
+                          minWidth: mediaQueryWidth,
+                          child: ElevatedButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.download_rounded),
+                            label: Text(
+                              'Download',
+                              style: GoogleFonts.inter(
+                                  fontSize: 13,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                                primary: Color(0xff272727),
+                                fixedSize:
+                                Size(MediaQuery
+                                    .of(context)
+                                    .size
+                                    .width, 40.0),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5.0))),
+                          ),
+                        )),
+                  ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  //Synopsis
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: buildText(data.synopsis),
+                  ),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  //Artist
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: buildText("Cast : ${data.cast}"),
+                  ),
+                  SizedBox(
+                    height: 15.0,
+                  ),
+                  //Creator
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.0),
+                    child: buildText("Creator : ${data.creator}"),
                   )
                 ],
               ),
-              SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 20.0, vertical: 10.0),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Flexible(
-                        child: Text(
-                          data.name,
-                          style: GoogleFonts.inter(
-                              fontSize: 24,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      FavoriteBtn(),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(height: 5.0),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      width: 40,
-                      height: 20,
-                      decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.5),
-                          borderRadius: BorderRadius.circular(10.0)),
-                      child: Center(
-                        child: Text(
-                          data.rate,
-                          style: GoogleFonts.inter(
-                              fontSize: 12,
-                              color: Colors.white,
-                              fontWeight: FontWeight.normal),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 10.0,
-                    ),
-                    Flexible(
-                      child: Text(
-                        data.genre,
-                        style: GoogleFonts.inter(
-                          fontSize: 12,
-                          color: Colors.white,
-                          fontWeight: FontWeight.normal,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5.0),
-                      width: 150,
-                      height: 40,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          print("Play Pressed");
-                        },
-                        icon: SvgPicture.asset(
-                          'assets/icons/playbuttonborder.svg',
-                          color: Colors.black,
-                        ),
-                        label: Text(
-                          "Play Now",
-                          style: GoogleFonts.inter(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            primary: kIconPrimaryColor,
-                            fixedSize: Size(150, 40),
-                            elevation: 1,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 5.0),
-                      width: 150,
-                      height: 40,
-                      child: ElevatedButton.icon(
-                        onPressed: () {
-                          print("Play Pressed");
-                        },
-                        icon: SvgPicture.asset(
-                          'assets/icons/playbuttonborder.svg',
-                          color: Colors.black,
-                        ),
-                        label: Text(
-                          "Play Trailer",
-                          style: GoogleFonts.inter(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                            primary: kIconPrimaryColor,
-                            fixedSize: Size(150, 40),
-                            elevation: 1,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0))),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Center(
-                    child: ButtonTheme(
-                  height: 40.0,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.download_rounded),
-                    label: Text(
-                      'Download',
-                      style: GoogleFonts.inter(
-                          fontSize: 14,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                        primary: Color(0xff272727),
-                        fixedSize:
-                            Size(MediaQuery.of(context).size.width, 40.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0))),
-                  ),
-                )),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: buildText(data.synopsis),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: buildText("Cast : ${data.cast}"),
-              ),
-              SizedBox(
-                height: 15.0,
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 20.0),
-                child: buildText("Creator : ${data.creator}"),
-              )
-            ],
-          ),
-        ),
-      )),
+            ),
+          )),
     );
   }
 

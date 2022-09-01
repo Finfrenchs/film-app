@@ -1,4 +1,3 @@
-import 'package:film_app/model/film_data.dart';
 import 'package:film_app/screen/account/account_screen.dart';
 import 'package:film_app/screen/exploration/explore_screen.dart';
 import 'package:film_app/screen/watchlist/watchlist_screen.dart';
@@ -42,12 +41,15 @@ class _MainScreenState extends State<MainScreen> {
             shape: CircularNotchedRectangle(),
             notchMargin: 10,
             child: Container(
-                height: 60,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      minWidth: 80,
+              height: MediaQuery.of(context).size.height * 0.09,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    //flex: 1,
+                    child: MaterialButton(
+                      minWidth: 20,
                       onPressed: () {
                         setState(() {
                           _selectedScreen = Home();
@@ -69,6 +71,7 @@ class _MainScreenState extends State<MainScreen> {
                           Text(
                             'Home',
                             style: GoogleFonts.inter(
+                              fontSize: 11,
                               color: _selectedIndex == 0
                                   ? kIconPrimaryColor
                                   : kIconSecondaryColor,
@@ -77,8 +80,11 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                     ),
-                    MaterialButton(
-                      minWidth: 80,
+                  ),
+                  Expanded(
+                    //flex: 2,
+                    child: MaterialButton(
+                      minWidth: 20,
                       onPressed: () {
                         setState(() {
                           _selectedScreen = ExploreScreen();
@@ -98,8 +104,9 @@ class _MainScreenState extends State<MainScreen> {
                             height: 5,
                           ),
                           Text(
-                            'Exploration',
+                            'Explore',
                             style: GoogleFonts.inter(
+                              fontSize: 11,
                               color: _selectedIndex == 1
                                   ? kIconPrimaryColor
                                   : kIconSecondaryColor,
@@ -108,8 +115,11 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                     ),
-                    MaterialButton(
-                      minWidth: 80,
+                  ),
+                  Expanded(
+                    //flex: 3,
+                    child: MaterialButton(
+                      minWidth: 20,
                       onPressed: () {
                         setState(() {
                           _selectedScreen = WatchlistScreen();
@@ -134,6 +144,7 @@ class _MainScreenState extends State<MainScreen> {
                           Text(
                             'Watchlist',
                             style: GoogleFonts.inter(
+                              fontSize: 11,
                               color: _selectedIndex == 2
                                   ? kIconPrimaryColor
                                   : kIconSecondaryColor,
@@ -142,8 +153,11 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                     ),
-                    MaterialButton(
-                      minWidth: 80,
+                  ),
+                  Expanded(
+                    //flex: 4,
+                    child: MaterialButton(
+                      minWidth: 20,
                       onPressed: () {
                         setState(() {
                           _selectedScreen = AccountScreen();
@@ -155,6 +169,8 @@ class _MainScreenState extends State<MainScreen> {
                         children: [
                           SvgPicture.asset(
                             'assets/icons/profile.svg',
+                            height: 24,
+                            width: 24,
                             color: _selectedIndex == 3
                                 ? kIconPrimaryColor
                                 : kIconSecondaryColor,
@@ -165,6 +181,7 @@ class _MainScreenState extends State<MainScreen> {
                           Text(
                             'Akun',
                             style: GoogleFonts.inter(
+                              fontSize: 11,
                               color: _selectedIndex == 3
                                   ? kIconPrimaryColor
                                   : kIconSecondaryColor,
@@ -173,8 +190,10 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ),
                     ),
-                  ],
-                )),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
