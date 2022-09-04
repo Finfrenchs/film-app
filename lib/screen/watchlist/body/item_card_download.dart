@@ -6,6 +6,6 @@ class ItemDownloadList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NoDataDownload();
+    return const NoDataDownload();
   }
 }

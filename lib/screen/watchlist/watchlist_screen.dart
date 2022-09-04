@@ -13,14 +13,15 @@ class WatchlistScreen extends StatefulWidget {
   State<WatchlistScreen> createState() => _WatchlistScreenState();
 }
 
-class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProviderStateMixin {
+class _WatchlistScreenState extends State<WatchlistScreen>
+    with SingleTickerProviderStateMixin {
   late TabController controller;
-  List? _MyListData;
-  List? _DownloadData;
+  List? _myListData;
+  List? _downloadData;
 
   @override
   void initState() {
-    controller = new TabController(length: 2, vsync: this);
+    controller = TabController(length: 2, vsync: this);
     super.initState();
   }
 
@@ -33,19 +34,14 @@ class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: kBgPrimaryColor,
-      appBar: buildAppBar(),
-      body: TabBarView(
-          controller: controller,
-          children: <Widget>[
-            new mylist.MyList(
-              data: _MyListData,
-            ),
-            new download.DownloadList(
-              data: _DownloadData
-            )
-          ])
-    );
+        backgroundColor: kBgPrimaryColor,
+        appBar: buildAppBar(),
+        body: TabBarView(controller: controller, children: <Widget>[
+          mylist.MyList(
+            data: _myListData,
+          ),
+          download.DownloadList(data: _downloadData)
+        ]));
   }
 
   AppBar buildAppBar() {
@@ -89,17 +85,16 @@ class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProv
         ),
       ],
       bottom: PreferredSize(
-        preferredSize: Size.fromHeight(75),
+        preferredSize: const Size.fromHeight(75),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 20, horizontal: 60),
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 60),
           child: Column(
             children: <Widget>[
               Container(
                 height: 40,
-                //width: MediaQuery.of(context).size.width*0.5,
-                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
                 decoration: BoxDecoration(
-                    color: Color(0xff373737),
+                    color: const Color(0xff373737),
                     borderRadius: BorderRadius.circular(15)),
                 child: TabBar(
                     controller: controller,
@@ -108,14 +103,13 @@ class _WatchlistScreenState extends State<WatchlistScreen> with SingleTickerProv
                       color: kIconPrimaryColor,
                     ),
                     labelColor: Colors.black,
-                    tabs: <Widget>[
-                      new Tab(
-                          text: 'My List',
-                        ),
-                      new Tab(
-                          text: 'Download',
-                        ),
-
+                    tabs: const <Widget>[
+                      Tab(
+                        text: 'My List',
+                      ),
+                      Tab(
+                        text: 'Download',
+                      ),
                     ]),
               ),
             ],

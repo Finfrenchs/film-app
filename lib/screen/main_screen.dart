@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   final PageStorageBucket bucket = PageStorageBucket();
-  Widget _selectedScreen = Home();
+  Widget _selectedScreen = const Home();
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
       body: PageStorage(bucket: bucket, child: _selectedScreen),
       bottomNavigationBar: SafeArea(
         child: Container(
-          decoration: BoxDecoration(boxShadow: <BoxShadow>[
+          decoration: const BoxDecoration(boxShadow: <BoxShadow>[
             BoxShadow(
               color: Colors.black,
               blurRadius: 10,
@@ -38,9 +38,9 @@ class _MainScreenState extends State<MainScreen> {
           child: BottomAppBar(
             elevation: 10,
             color: kPrimaryColor,
-            shape: CircularNotchedRectangle(),
+            shape: const CircularNotchedRectangle(),
             notchMargin: 10,
-            child: Container(
+            child: SizedBox(
               height: MediaQuery.of(context).size.height * 0.09,
               width: MediaQuery.of(context).size.width,
               child: Row(
@@ -52,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                       minWidth: 20,
                       onPressed: () {
                         setState(() {
-                          _selectedScreen = Home();
+                          _selectedScreen = const Home();
                           _selectedIndex = 0;
                         });
                       },
@@ -65,7 +65,7 @@ class _MainScreenState extends State<MainScreen> {
                                 ? kIconPrimaryColor
                                 : kIconSecondaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
@@ -87,7 +87,7 @@ class _MainScreenState extends State<MainScreen> {
                       minWidth: 20,
                       onPressed: () {
                         setState(() {
-                          _selectedScreen = ExploreScreen();
+                          _selectedScreen = const ExploreScreen();
                           _selectedIndex = 1;
                         });
                       },
@@ -100,7 +100,7 @@ class _MainScreenState extends State<MainScreen> {
                                 ? kIconPrimaryColor
                                 : kIconSecondaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
@@ -122,7 +122,7 @@ class _MainScreenState extends State<MainScreen> {
                       minWidth: 20,
                       onPressed: () {
                         setState(() {
-                          _selectedScreen = WatchlistScreen();
+                          _selectedScreen = const WatchlistScreen();
                           _selectedIndex = 2;
                         });
                       },
@@ -138,7 +138,7 @@ class _MainScreenState extends State<MainScreen> {
                                 ? kIconPrimaryColor
                                 : kIconSecondaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(
@@ -160,7 +160,7 @@ class _MainScreenState extends State<MainScreen> {
                       minWidth: 20,
                       onPressed: () {
                         setState(() {
-                          _selectedScreen = AccountScreen();
+                          _selectedScreen = const AccountScreen();
                           _selectedIndex = 3;
                         });
                       },
@@ -175,7 +175,7 @@ class _MainScreenState extends State<MainScreen> {
                                 ? kIconPrimaryColor
                                 : kIconSecondaryColor,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 5,
                           ),
                           Text(

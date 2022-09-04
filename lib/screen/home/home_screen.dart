@@ -11,7 +11,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQueryHeight = MediaQuery.of(context).size.height;
     final mediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: kBgPrimaryColor,
@@ -22,12 +21,12 @@ class Home extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              CarouselIndicator(),
-              SizedBox(
+              const CarouselIndicator(),
+              const SizedBox(
                 height: 5,
               ),
               buildOptionsMovieCategories(),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               //SubHead1
@@ -57,11 +56,11 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               buildContinueWatchingList(),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               //SubHead2
@@ -91,7 +90,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               buildPopularMovie(mediaQueryWidth),
@@ -105,180 +104,171 @@ class Home extends StatelessWidget {
   ///Popular Movie List
   Container buildPopularMovie(double mediaQueryWidth) {
     return Container(
-              width: mediaQueryWidth,
-              //height: mediaQueryHeight,
-              //margin: const EdgeInsets.symmetric(vertical: 15),
-              decoration: BoxDecoration(
-                  //color: kOtherColor2,
-                  borderRadius: BorderRadius.circular(12.0)),
-              child: ListView.builder(
-                  padding: EdgeInsets.only(bottom: 10),
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: filmData.length,
-                  scrollDirection: Axis.vertical,
-                  itemBuilder: (context, index) {
-                    final FilmData data = filmData[index];
-                    return GestureDetector(
-                        onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return DetailMovie(data: data);
-                          }));
-                        },
-                        child: Container(
-                          width: mediaQueryWidth,
-                          //height: mediaQueryHeight,
-                          margin: EdgeInsets.symmetric(vertical: 10),
-                          decoration: BoxDecoration(
-                              color: kOtherColor2,
-                              borderRadius: BorderRadius.circular(12.0),
-                              boxShadow: [
-                                BoxShadow(
-                                    color: Colors.white70.withOpacity(0.2),
-                                    spreadRadius: 0,
-                                    blurRadius: 1.5,
-                                    offset: Offset(4, 4))
-                              ]),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+      width: mediaQueryWidth,
+      //height: mediaQueryHeight,
+      //margin: const EdgeInsets.symmetric(vertical: 15),
+      decoration: BoxDecoration(
+          //color: kOtherColor2,
+          borderRadius: BorderRadius.circular(12.0)),
+      child: ListView.builder(
+          padding: const EdgeInsets.only(bottom: 10),
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: filmData.length,
+          scrollDirection: Axis.vertical,
+          itemBuilder: (context, index) {
+            final FilmData data = filmData[index];
+            return GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return DetailMovie(data: data);
+                  }));
+                },
+                child: Container(
+                  width: mediaQueryWidth,
+                  //height: mediaQueryHeight,
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  decoration: BoxDecoration(
+                      color: kOtherColor2,
+                      borderRadius: BorderRadius.circular(12.0),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.white70.withOpacity(0.2),
+                            spreadRadius: 0,
+                            blurRadius: 1.5,
+                            offset: const Offset(4, 4))
+                      ]),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Container(
+                          //padding: EdgeInsets.all(5.0),
+                          margin: const EdgeInsets.only(
+                              right: 15.0, left: 10.0, top: 5.0, bottom: 5.0),
+                          child: Container(
+                            width: 60,
+                            height: 75,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12.0),
+                                image: DecorationImage(
+                                    image: Image.asset(data.imagePoster).image,
+                                    fit: BoxFit.cover)),
+                          )),
+                      SizedBox(
+                        width: 180,
+                        //margin: EdgeInsets.only(right: 50),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Container(
-                                  //padding: EdgeInsets.all(5.0),
-                                  margin: EdgeInsets.only(
-                                      right: 15.0,
-                                      left: 10.0,
-                                      top: 5.0,
-                                      bottom: 5.0),
-                                  child: Container(
-                                    width: 60,
-                                    height: 75,
-                                    decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                        image: DecorationImage(
-                                            image:
-                                                Image.asset(data.imagePoster)
-                                                    .image,
-                                            fit: BoxFit.cover)),
-                                  )),
-                              Container(
-                                width: 180,
-                                //margin: EdgeInsets.only(right: 50),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 8.0, bottom: 8.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Text(
-                                        data.name,
-                                        style: GoogleFonts.inter(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w700,
-                                            color: Colors.white),
-                                      ),
-                                      SizedBox(
-                                        height: 10,
-                                      ),
-                                      Text(
-                                        data.genre,
-                                        style: GoogleFonts.inter(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.normal,
-                                            color: Colors.white),
-                                      )
-                                    ],
-                                  ),
-                                ),
+                              Text(
+                                data.name,
+                                style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    color: Colors.white),
                               ),
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  height: 40,
-                                  width: 40,
-                                  decoration: BoxDecoration(
-                                      color: kIconPrimaryColor,
-                                      shape: BoxShape.circle),
-                                  child: Center(
-                                    child: SvgPicture.asset(
-                                        'assets/icons/playbuttonround.svg'),
-                                  ),
-                                ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Text(
+                                data.genre,
+                                style: GoogleFonts.inter(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.white),
                               )
                             ],
                           ),
-                        )
-                        // Card(
-                        //   margin: const EdgeInsets.symmetric(vertical: 10),
-                        //   color: kOtherColor2,
-                        //   child: Row(
-                        //     crossAxisAlignment: CrossAxisAlignment.center,
-                        //     children: <Widget>[
-                        //       Container(
-                        //         //padding: EdgeInsets.all(5.0),
-                        //         margin: EdgeInsets.only(right: 10.0, left: 10, top: 5, bottom: 5),
-                        //         child: Expanded(
-                        //             flex: 1,
-                        //             child: Container(
-                        //               width: 60,
-                        //               height: 75,
-                        //               decoration: BoxDecoration(
-                        //                 borderRadius: BorderRadius.circular(12.0),
-                        //                 image: DecorationImage(image: Image.asset(data.imagePoster).image, fit: BoxFit.cover)
-                        //               ),
-                        //             )),
-                        //       ),
-                        //       Container(
-                        //         width: 180,
-                        //         margin: EdgeInsets.only(right: 30),
-                        //         child: Expanded(
-                        //             flex: 2,
-                        //             child: Padding(
-                        //               padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                        //               child: Column(
-                        //                 crossAxisAlignment: CrossAxisAlignment.start,
-                        //                 mainAxisSize: MainAxisSize.min,
-                        //                 children: <Widget>[
-                        //                   Text(data.name, style: GoogleFonts.inter(
-                        //                     fontSize: 14,
-                        //                     fontWeight: FontWeight.w700,
-                        //                     color: Colors.white
-                        //                   ),),
-                        //                   SizedBox(height: 10,),
-                        //                   Text(data.genre, style: GoogleFonts.inter(
-                        //                     fontSize: 12,
-                        //                     fontWeight: FontWeight.normal,
-                        //                     color: Colors.white
-                        //                   ),)
-                        //                 ],
-                        //               ),
-                        //             )),
-                        //       ),
-                        //       Container(
-                        //         width: 50,
-                        //         child: Expanded(
-                        //             flex: 3,
-                        //             child: Container(
-                        //               height: 40,
-                        //               width: 40,
-                        //               decoration: BoxDecoration(
-                        //                 color: Color(0xffF1EC40),
-                        //                 shape: BoxShape.circle
-                        //               ),
-                        //               child: Center(
-                        //                 child: SvgPicture.asset('assets/icons/playbuttonround.svg'),
-                        //               ),
-                        //             )),
-                        //       )
-                        //     ],
-                        //   ),
-                        // ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Container(
+                          height: 40,
+                          width: 40,
+                          decoration: const BoxDecoration(
+                              color: kIconPrimaryColor, shape: BoxShape.circle),
+                          child: Center(
+                            child: SvgPicture.asset(
+                                'assets/icons/playbuttonround.svg'),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+                // Card(
+                //   margin: const EdgeInsets.symmetric(vertical: 10),
+                //   color: kOtherColor2,
+                //   child: Row(
+                //     crossAxisAlignment: CrossAxisAlignment.center,
+                //     children: <Widget>[
+                //       Container(
+                //         //padding: EdgeInsets.all(5.0),
+                //         margin: EdgeInsets.only(right: 10.0, left: 10, top: 5, bottom: 5),
+                //         child: Expanded(
+                //             flex: 1,
+                //             child: Container(
+                //               width: 60,
+                //               height: 75,
+                //               decoration: BoxDecoration(
+                //                 borderRadius: BorderRadius.circular(12.0),
+                //                 image: DecorationImage(image: Image.asset(data.imagePoster).image, fit: BoxFit.cover)
+                //               ),
+                //             )),
+                //       ),
+                //       Container(
+                //         width: 180,
+                //         margin: EdgeInsets.only(right: 30),
+                //         child: Expanded(
+                //             flex: 2,
+                //             child: Padding(
+                //               padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                //               child: Column(
+                //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //                 mainAxisSize: MainAxisSize.min,
+                //                 children: <Widget>[
+                //                   Text(data.name, style: GoogleFonts.inter(
+                //                     fontSize: 14,
+                //                     fontWeight: FontWeight.w700,
+                //                     color: Colors.white
+                //                   ),),
+                //                   SizedBox(height: 10,),
+                //                   Text(data.genre, style: GoogleFonts.inter(
+                //                     fontSize: 12,
+                //                     fontWeight: FontWeight.normal,
+                //                     color: Colors.white
+                //                   ),)
+                //                 ],
+                //               ),
+                //             )),
+                //       ),
+                //       Container(
+                //         width: 50,
+                //         child: Expanded(
+                //             flex: 3,
+                //             child: Container(
+                //               height: 40,
+                //               width: 40,
+                //               decoration: BoxDecoration(
+                //                 color: Color(0xffF1EC40),
+                //                 shape: BoxShape.circle
+                //               ),
+                //               child: Center(
+                //                 child: SvgPicture.asset('assets/icons/playbuttonround.svg'),
+                //               ),
+                //             )),
+                //       )
+                //     ],
+                //   ),
+                // ),
 
-                        );
-                  }),
-            );
+                );
+          }),
+    );
   }
 
   ///Continue Watching
@@ -293,7 +283,7 @@ class Home extends StatelessWidget {
         itemBuilder: (context, index) {
           final FilmData data = filmData[index];
           return Container(
-            margin: EdgeInsets.symmetric(horizontal: 10.0),
+            margin: const EdgeInsets.symmetric(horizontal: 10.0),
             decoration: BoxDecoration(
               color: kOtherColor2,
               borderRadius: BorderRadius.circular(5.0),
@@ -303,7 +293,8 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
                       return DetailMovie(data: data);
                     }));
                   },
@@ -313,7 +304,7 @@ class Home extends StatelessWidget {
                     //margin: EdgeInsets.symmetric(horizontal: 10.0),
                     decoration: BoxDecoration(
                         color: kOtherColor2,
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(5.0),
                           topLeft: Radius.circular(5.0),
                         ),
@@ -322,11 +313,11 @@ class Home extends StatelessWidget {
                             fit: BoxFit.cover)),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 5.0),
+                  margin: const EdgeInsets.symmetric(vertical: 5.0),
                   width: 80,
                   height: 30,
                   child: ElevatedButton.icon(
@@ -345,8 +336,8 @@ class Home extends StatelessWidget {
                           fontWeight: FontWeight.w600),
                     ),
                     style: ElevatedButton.styleFrom(
-                        primary: kIconPrimaryColor,
-                        fixedSize: Size(80, 20),
+                        backgroundColor: kIconPrimaryColor,
+                        fixedSize: const Size(80, 20),
                         elevation: 1,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50))),
@@ -383,7 +374,7 @@ class Home extends StatelessWidget {
                   Container(
                     height: 50,
                     width: 50,
-                    margin: EdgeInsets.only(top: 10, bottom: 10),
+                    margin: const EdgeInsets.only(top: 10, bottom: 10),
                     decoration: BoxDecoration(
                         color: kOtherColor1,
                         shape: BoxShape.circle,
@@ -396,7 +387,7 @@ class Home extends StatelessWidget {
                     //   child: Image.asset('assets/icons/television.png', fit: BoxFit.cover,),
                     // ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -427,7 +418,7 @@ class Home extends StatelessWidget {
                   Container(
                     height: 50,
                     width: 50,
-                    margin: EdgeInsets.only(top: 10, bottom: 10),
+                    margin: const EdgeInsets.only(top: 10, bottom: 10),
                     decoration: BoxDecoration(
                         color: kOtherColor1,
                         shape: BoxShape.circle,
@@ -437,7 +428,7 @@ class Home extends StatelessWidget {
                           fit: BoxFit.cover,
                         ).image)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(
@@ -468,7 +459,7 @@ class Home extends StatelessWidget {
                   Container(
                     height: 50,
                     width: 50,
-                    margin: EdgeInsets.only(top: 10, bottom: 10),
+                    margin: const EdgeInsets.only(top: 10, bottom: 10),
                     decoration: BoxDecoration(
                         color: kOtherColor1,
                         shape: BoxShape.circle,
@@ -478,7 +469,7 @@ class Home extends StatelessWidget {
                           fit: BoxFit.cover,
                         ).image)),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text(

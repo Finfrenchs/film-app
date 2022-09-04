@@ -1,6 +1,3 @@
-import 'package:film_app/model/film_data.dart';
-import 'package:film_app/screen/detail_screen/detail_movie.dart';
-import 'package:film_app/screen/watchlist/body/item_card_mylist.dart';
 import 'package:film_app/screen/watchlist/no_data_mylist.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +7,7 @@ class MyList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NoDataMylist();
+    return const NoDataMylist();
     //   Container(
     //   alignment: Alignment.center,
     //   padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
@@ -33,6 +30,5 @@ class MyList extends StatelessWidget {
     //     ],
     //   ),
     // );
-
   }
 }

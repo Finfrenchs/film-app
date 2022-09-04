@@ -68,8 +68,10 @@ var filmData = [
       name: 'The Flash',
       genre: 'Hero | Action | Adventure | Fiction',
       rate: '17+',
-      synopsis: "Barry Allen/Flash (Grant Gustin) mungkin tidak pernah mengira akan kehilangan ibu saat usianya masih sangat belia. Sang ibu terbunuh oleh cahaya dan kilat misterius. Seiring waktu, secara rahasia dia mencari tahu dan memecahkan misteri tersebut sekaligus membuktikan ayahnya tidak bersalah.",
-      cast: 'Grant Gustin, Candice Patton, Carlos Valdes, Danielle Panabaker, Tom Cavanagh, Jesse L. Martin, Danielle Nicolet, Hartley Sawyer, Jessica Parker, Jordan Fisher, Tom Felton, etc',
+      synopsis:
+          "Barry Allen/Flash (Grant Gustin) mungkin tidak pernah mengira akan kehilangan ibu saat usianya masih sangat belia. Sang ibu terbunuh oleh cahaya dan kilat misterius. Seiring waktu, secara rahasia dia mencari tahu dan memecahkan misteri tersebut sekaligus membuktikan ayahnya tidak bersalah.",
+      cast:
+          'Grant Gustin, Candice Patton, Carlos Valdes, Danielle Panabaker, Tom Cavanagh, Jesse L. Martin, Danielle Nicolet, Hartley Sawyer, Jessica Parker, Jordan Fisher, Tom Felton, etc',
       creator: "DC Comics",
       imageBanner: 'assets/images/banner/flashbanner.jpg',
       imagePoster: 'assets/images/poster/flash.jpg')

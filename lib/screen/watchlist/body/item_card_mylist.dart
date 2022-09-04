@@ -9,12 +9,12 @@ class ItemCardList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.of(context).size.height,
       child: InkWell(
         onTap: () {
           press;
-          print('card pressed');
+          debugPrint('card pressed');
         },
         child: Card(
           child: Row(
@@ -36,7 +36,7 @@ class ItemCardList extends StatelessWidget {
                               fontWeight: FontWeight.normal,
                               color: Colors.white),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10.0,
                         ),
                         Container(
@@ -55,7 +55,7 @@ class ItemCardList extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(

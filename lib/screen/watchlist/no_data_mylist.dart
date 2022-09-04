@@ -11,24 +11,19 @@ class NoDataMylist extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: ListView(
           scrollDirection: Axis.vertical,
           children: [
             Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Container(
+              child: SizedBox(
                 width: 165,
                 height: 165,
-                // decoration: BoxDecoration(
-                //     image: DecorationImage(
-                //         image:
-                //         Image.asset('assets/icons/empty-download.png').image,
-                //         fit: BoxFit.cover)),
                 child: SvgPicture.asset('assets/icons/empty-mylist.svg'),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Center(
@@ -40,11 +35,10 @@ class NoDataMylist extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            // Flexible(
-            //   child:
+
             Text(
               'Add the Movies you like,\nso they are easy to find and watch.',
               style: GoogleFonts.inter(
@@ -53,19 +47,25 @@ class NoDataMylist extends StatelessWidget {
                   fontWeight: FontWeight.normal),
               textAlign: TextAlign.center,
             ),
-            //),
-            SizedBox(
+
+            const SizedBox(
               height: 50,
             ),
             Container(
-                margin: EdgeInsets.symmetric(vertical: 5.0),
+                margin: const EdgeInsets.symmetric(vertical: 5.0),
                 width: 100,
                 height: 40,
-                padding: EdgeInsets.symmetric(horizontal: 80),
+                padding: const EdgeInsets.symmetric(horizontal: 80),
                 child: ElevatedButton(
                   onPressed: () {
                     print('Search Pressed');
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: kIconPrimaryColor,
+                      fixedSize: const Size(100, 40),
+                      elevation: 1,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0))),
                   child: Text(
                     'Search',
                     style: GoogleFonts.inter(
@@ -73,12 +73,6 @@ class NoDataMylist extends StatelessWidget {
                         color: Colors.black,
                         fontWeight: FontWeight.bold),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      primary: kIconPrimaryColor,
-                      fixedSize: Size(100, 40),
-                      elevation: 1,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(5.0))),
                 )),
           ],
         ),

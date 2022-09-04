@@ -7,6 +7,6 @@ class DownloadList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ItemDownloadList();
+    return const ItemDownloadList();
   }
 }

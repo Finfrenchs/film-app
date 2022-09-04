@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class ExploreScreen extends StatelessWidget {
   const ExploreScreen({Key? key}) : super(key: key);
   @override
@@ -13,11 +12,17 @@ class ExploreScreen extends StatelessWidget {
       appBar: buildAppBar(),
       body: Center(
         child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Coming Soon Explore', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white),),
-            ],
-          ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              'Coming Soon Explore',
+              style: TextStyle(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ],
+        ),
       ),
     );
   }

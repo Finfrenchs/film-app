@@ -12,8 +12,12 @@ class AccountScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBgPrimaryColor,
       appBar: buildAppBar(),
-      body: Center(
-        child: Text('Coming Soon Profile', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white),),
+      body: const Center(
+        child: Text(
+          'Coming Soon Profile',
+          style: TextStyle(
+              fontSize: 35, fontWeight: FontWeight.bold, color: Colors.white),
+        ),
       ),
     );
   }
@@ -34,7 +38,7 @@ class AccountScreen extends StatelessWidget {
                   fontSize: 24,
                   fontWeight: FontWeight.w600,
                   color: Colors.white),
-            )
+            ),
           ],
         ),
       ),
@@ -59,5 +63,4 @@ class AccountScreen extends StatelessWidget {
       ],
     );
   }
-
 }
